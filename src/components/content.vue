@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import "@/styles/markdown.scss"
+
 defineProps<{ str?: string | Promise<string> }>();
 </script>
 

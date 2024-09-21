@@ -1,8 +1,8 @@
-body>*:first-child {
+body > *:first-child {
   margin-top: 0 !important;
 }
 
-body>*:last-child {
+body > *:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -26,30 +26,37 @@ h1, h2, h3, h4, h5, h6 {
 h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
   font-size: inherit;
 }
+
 h4,
 h5,
 h6 {
 }
+
 h1 {
   font-size: 2.8em;
 }
+
 h2 {
   font-size: 2.4em;
 }
+
 h3 {
   font-size: 1.8em;
 }
+
 h4 {
   font-size: 1.4em;
 }
+
 h5 {
   font-size: 1.3em;
 }
+
 h6 {
   font-size: 1.15em;
 }
 
-body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+body > h2:first-child, body > h1:first-child, body > h1:first-child + h2, body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
   margin-top: 0;
   padding-top: 0;
 }
@@ -59,7 +66,7 @@ a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-
   padding-top: 0;
 }
 
-h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
   margin-top: 10px;
 }
 
@@ -69,13 +76,16 @@ h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
 a {
   text-decoration: none;
 }
+
 a:focus {
   outline: thin dotted;
 }
+
 a:active,
 a:hover {
   outline: 0;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -116,11 +126,11 @@ dl dt:first-child {
   padding: 0;
 }
 
-dl dt>:first-child {
+dl dt > :first-child {
   margin-top: 0;
 }
 
-dl dt>:last-child {
+dl dt > :last-child {
   margin-bottom: 0;
 }
 
@@ -129,11 +139,11 @@ dl dd {
   padding: 0 15px;
 }
 
-dl dd>:first-child {
+dl dd > :first-child {
   margin-top: 0;
 }
 
-dl dd>:last-child {
+dl dd > :last-child {
   margin-bottom: 0;
 }
 
@@ -154,7 +164,7 @@ code, tt {
   border-radius: 3px;
 }
 
-pre>code {
+pre > code {
   margin: 0;
   padding: 0;
   white-space: pre;
@@ -178,6 +188,7 @@ pre code, pre tt {
   background-color: transparent;
   border: none;
 }
+
 /* QUOTES
 =============================================================================*/
 
@@ -187,11 +198,11 @@ blockquote {
   color: #777;
 }
 
-blockquote>:first-child {
+blockquote > :first-child {
   margin-top: 0;
 }
 
-blockquote>:last-child {
+blockquote > :last-child {
   margin-bottom: 0;
 }
 
@@ -211,9 +222,10 @@ hr {
 
 /* TABLES
 =============================================================================*/
-table{
+table {
   margin: 0 auto;
 }
+
 table th {
   font-weight: bold;
 }
@@ -238,10 +250,11 @@ table tr:nth-child(2n) {
 img {
   max-width: 100%
 }
+
 /* P
 =============================================================================*/
-p{
-  font-size:1.2em;
+p {
+  font-size: 1.2em;
 }
 
 
@@ -249,8 +262,8 @@ p{
 #outline-list {
   height: 325px;
   position: fixed;
-  overflow-y:scroll;
-  overflow-x:hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   bottom: 80px;
   right: 15px;
   width: 220px;

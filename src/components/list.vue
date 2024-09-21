@@ -5,11 +5,11 @@ import defineStore from "@/store";
 import type {Router} from "vue-router"
 import type {IAbridgeUpdatesViewList} from "@/types";
 
+defineProps<{list: IAbridgeUpdatesViewList}>();
+
 const router: Router = useRouter();
 const store = defineStore()
 const {setUpdateId} = store
-
-defineProps<{list: IAbridgeUpdatesViewList}>();
 
 const click = (id: string): void => {
   setUpdateId(id)

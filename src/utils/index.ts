@@ -7,8 +7,10 @@ const deepClone = <T>(data: T): T => {
     }, {} as T);
 }
 
-const setId = <T extends Record<string, any>>(data: Array<T>): Array<T & {id: number}> => deepClone(data).map(((item: T, i: number) => ({
-   ...item,
+const setId = <T extends Record<string, any>>(data: Array<T>): Array<T & {
+    id: number
+}> => deepClone(data).map(((item: T, i: number) => ({
+    ...item,
     id: i + 1,
 })))
 

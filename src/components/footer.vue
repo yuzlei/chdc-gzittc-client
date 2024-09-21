@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {IBarList} from "@/types";
+import type {IBarList} from "@/types";
 
 defineProps<{ bar: IBarList }>();
 </script>

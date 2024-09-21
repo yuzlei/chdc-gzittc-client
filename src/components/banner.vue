@@ -6,7 +6,14 @@ import type {IBarList} from "@/types";
 
 const router: Router = useRouter();
 
-withDefaults(defineProps<{img?: string, title?: string, content?: string, btn?: IBarList, height?: number, mask?: boolean }>(), {
+withDefaults(defineProps<{
+  img?: string,
+  title?: string,
+  content?: string,
+  btn?: IBarList,
+  height?: number,
+  mask?: boolean
+}>(), {
   img: 'linear-gradient(45deg, rgba(168,29,132,1) 0, rgb(234,57,111) 100%)',
 })
 </script>

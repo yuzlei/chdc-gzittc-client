@@ -4,15 +4,12 @@ import {onMounted, onBeforeUnmount, ref} from "vue"
 import type {Ref} from "vue"
 import type {IAchieveList} from "@/types";
 
-const li: Ref<HTMLLIElement | null> = ref(null)
-
-const width: Ref<number | null> = ref(null)
-
-const achieveMove: Ref<number> = ref(0)
-
-const share: Ref<number> = ref(0)
-
 defineProps<{ achieveList: IAchieveList }>();
+
+const li: Ref<HTMLLIElement> = ref(null)
+const width: Ref<number> = ref(null)
+const achieveMove: Ref<number> = ref(0)
+const share: Ref<number> = ref(0)
 
 const updateWidth: () => void = debounce(() => {
   if (li.value) {
@@ -27,9 +24,7 @@ onMounted(() => {
   window.addEventListener('resize', updateWidth);
 })
 
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', updateWidth);
-})
+onBeforeUnmount(() => window.removeEventListener('resize', updateWidth))
 </script>
 
 <template>

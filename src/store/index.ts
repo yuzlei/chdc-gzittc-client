@@ -11,8 +11,9 @@ export default defineStore("defineStore", () => {
     const updateId: Ref<string> = ref("")
     const search: Ref<string> = ref("")
     const staticSearch: Ref<string> = ref("")
-    const searchData: Ref<IAbridgeUpdatesViewList | null> = ref(null)
+    const searchData: Ref<IAbridgeUpdatesViewList> = ref(null)
     const searchPageTotal: Ref<number> = ref(1)
+    const url: string = `${apiUrl}/updates`
 
     const setUpdatePageNum = (num: number): void => {
         updatePageNum.value = num
@@ -33,13 +34,15 @@ export default defineStore("defineStore", () => {
     const keyword = (str: string): string => str === "" ? str : str.replaceAll(search.value, `<span style="color: red">${search.value}</span>`)
 
     const getSearchData = async (): Promise<void> => {
-        let {data: {data, pageTotal: _pageTotal}} = await axios.get(`${apiUrl}/updates/pages_condition`, {params: {
+        let {data: {data, pageTotal: _pageTotal}} = await axios.get(`${url}/pages_condition`, {
+            params: {
                 title_regex: `/${search.value}/`,
                 content_text_regex: `/${search.value}/`,
                 author_regex: `/${search.value}/`,
                 page: searchPageNum.value
-            }})
-        if(search.value !== "") {
+            }
+        })
+        if (search.value !== "") {
             data = data.map((item: IAbridgeUpdatesView) => {
                 item.title = keyword(item.title)
                 item.ellipsis = keyword(item.ellipsis)
