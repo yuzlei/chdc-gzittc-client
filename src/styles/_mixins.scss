@@ -1,0 +1,14 @@
+@import "@/styles/variables";
+
+@mixin media($query) {
+  $width: map-get($breakpoints, $query);
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin outer-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

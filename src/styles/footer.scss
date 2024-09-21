@@ -1,0 +1,72 @@
+@import "@/styles/globals";
+
+ul, li {
+  list-style: none;
+}
+
+.footer {
+  background-color: #3f4246;
+  @include outer-box;
+
+  > .footer-content {
+    width: $width;
+    padding: 30px 20px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+
+    @include media('md') {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    > ul {
+      display: flex;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      > li {
+        cursor: pointer;
+        margin: 0 23px 10px 0;
+
+        > a {
+          color: white;
+          font-size: 14px;
+          transition: opacity 0.2s linear;
+          text-decoration: none;
+        }
+
+        &:nth-last-of-type(1) {
+          margin-right: 0;
+        }
+
+        &:hover > a {
+          opacity: 0.75;
+        }
+      }
+    }
+
+    > .info {
+      > p {
+        color: white;
+        font-size: 14px;
+        margin-bottom: 10px;
+
+        @include media('md') {
+          text-align: center;
+        }
+
+        > a {
+          color: white;
+          transition: opacity 0.2s linear;
+          text-decoration: none;
+
+          &:hover {
+            opacity: 0.75;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "@/styles/globals";
+
+.content {
+  @include outer-box;
+  line-height: 1.7;
+
+  > .content-center {
+    width: 50%;
+
+    @include media('md') {
+      width: 90%;
+    }
+  }
+}

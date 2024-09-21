@@ -1,0 +1,106 @@
+@import "@/styles/globals";
+
+ul, li {
+  list-style: none;
+}
+
+.abridge-list {
+  @include outer-box;
+
+  > ul {
+    > li {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      margin-bottom: 30px;
+
+      @include media('sm') {
+        flex-direction: column;
+      }
+
+      > .img-box {
+        width: 387px;
+        height: 258px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 16px 38px -12px rgba(0,0,0,.56),0 4px 25px 0 rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);
+        margin-right: 35px;
+
+        @include media('sm') {
+          margin-bottom: 30px;
+        }
+
+        > .transparent-box {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          background-color: white;
+          transition: opacity 0.2s linear;
+          z-index: 1;
+        }
+
+        > img {
+          width: 100%;
+          height: 100%;
+          transition: transform 0.5s linear;
+        }
+
+        &:hover > img{
+          transform: scale(1.2);
+        }
+
+        &:hover > .transparent-box{
+          opacity: 0.2;
+        }
+      }
+
+      > .message {
+        width: 500px;
+
+        @include media('sm') {
+          width: 80%;
+        }
+
+        > h1 {
+          color: #3c4858;
+          cursor: pointer;
+          transition: opacity 0.2s linear;
+          font-size: 24px;
+
+          &:hover {
+            opacity: 0.75;
+          }
+        }
+
+        > p {
+          line-height: 25px;
+          font-size: 14px;
+          margin: 10px 0;
+
+          > span {
+            &:nth-of-type(1) {
+              color: #999;
+            }
+
+            &:nth-of-type(2) {
+              color: #23527c;
+              transition: opacity 0.2s linear;
+              cursor: pointer;
+
+              &:hover {
+                opacity: .75;
+              }
+            }
+          }
+        }
+
+        > span {
+          color: #3c4858;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

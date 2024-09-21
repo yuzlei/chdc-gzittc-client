@@ -1,0 +1,114 @@
+@import "@/styles/globals";
+
+ul, li {
+  list-style: none;
+}
+
+.achieve {
+  @include outer-box;
+
+  > .achieve-content {
+    width: $width;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    > .btn {
+      width: 40px;
+      aspect-ratio: 1/1;
+      border-radius: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      bottom: 100px;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+      user-select: none;
+      z-index: 2;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    > .left {
+      left: 0;
+    }
+
+    > .right {
+      right: 0;
+    }
+
+    > ul {
+      transition: margin-left 0.3s linear;
+      display: flex;
+      width: 100%;
+
+      > li {
+        flex: 0 0 auto;
+        width: calc(100% / 3);
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include media('md') {
+          width: calc(100% / 2);
+        }
+
+        @include media('sm') {
+          width: 100%;
+        }
+
+        > .medal {
+          $medalWidth: 100px;
+          width: $medalWidth;
+          height: 130px;
+          background: url("@/assets/images/achieve/achieve.png") no-repeat center center;
+          background-size: 100% auto;
+          filter: grayscale(100%);
+          transition: filter 0.2s linear;
+          cursor: pointer;
+
+          &:hover {
+            filter: grayscale(0%);
+          }
+
+          &:hover + p {
+            opacity: 1;
+          }
+
+          > .medal-content {
+            width: $medalWidth;
+            aspect-ratio: 1/1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            > img {
+              width: 30px;
+              mix-blend-mode: overlay;
+            }
+          }
+        }
+
+        > p {
+          width: 200px;
+          font-size: 14px;
+          color: #999999;
+          margin-top: 15px;
+          text-align: center;
+          line-height: 22px;
+          opacity: 0;
+          transition: opacity 0.2s linear;
+        }
+      }
+    }
+  }
+}
