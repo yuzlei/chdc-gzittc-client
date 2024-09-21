@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useRouter} from 'vue-router';
-import {formatTime} from "@/utils"
+import {completeImagePath, formatTime} from "@/utils"
 import defineStore from "@/store";
 import type {Router} from "vue-router"
 import type {IAbridgeUpdatesViewList} from "@/types";
@@ -23,7 +23,7 @@ const click = (id: string): void => {
       <li v-for="item in list" :key="item._id">
         <div @click="click(item._id)" class="img-box">
           <div class="transparent-box"></div>
-          <img @click="click(item._id)" :src="item.cover" alt="?">
+          <img @click="click(item._id)" :src="completeImagePath(item.cover)" alt="?">
         </div>
         <div class="message">
           <h1 v-html="item.title" @click="click(item._id)"></h1>

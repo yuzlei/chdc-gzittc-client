@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {apiUrl} from "@/config";
 import {onMounted, ref} from "vue";
-import {formatTime} from "@/utils"
+import {completeImagePath, formatTime} from "@/utils"
 import {storeToRefs} from "pinia";
 import defineStore from "@/store";
 import axios from "axios";
@@ -20,10 +20,12 @@ onMounted(async () => {
   const res = await axios.get(`${url}/search`, {params: {_id: updateId.value}})
   data.value = res.data[0];
 })
+
+const replaceContent = (str: string): string => str.replace(/src=["'](\/.+\.(png|jpg|jpeg)\/?)["']/g, ((_, url: string) => `src="${apiUrl}${url}"`))
 </script>
 
 <template>
-  <banner style="margin-bottom: 60px;" mask v-if="data" :img="`url(${data.cover})`" :height="330"
+  <banner style="margin-bottom: 60px;" mask v-if="data" :img="`url(${completeImagePath(data.cover)})`" :height="330"
           :title="data.title" :content="`于 ${formatTime(data.createdAt)} 由 ${data.author} 发布`"></banner>
-  <content v-if="data" :str="data.content"></content>
+  <content v-if="data" :str="replaceContent(data.content)"></content>
 </template>

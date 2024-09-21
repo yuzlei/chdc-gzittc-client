@@ -1,3 +1,5 @@
+import {apiUrl} from "../config";
+
 const deepClone = <T>(data: T): T => {
     if (typeof data !== 'object' || data === null) return data;
     if (Array.isArray(data)) return data.map(item => deepClone(item)) as T;
@@ -26,13 +28,16 @@ const debounce = <T extends (...args: Parameters<T>) => any>(fun: T, delay: numb
 }
 
 const formatTime = (time: string): string => {
-    const date = new Date(time)
+    const date: Date = new Date(time)
     return `${date.getFullYear()}年${('0' + (date.getMonth() + 1)).slice(-2)}月${('0' + date.getDate()).slice(-2)}日`
 }
+
+const completeImagePath = (url: string): string => `${apiUrl}${url}`
 
 export {
     deepClone,
     setId,
     debounce,
     formatTime,
+    completeImagePath
 }

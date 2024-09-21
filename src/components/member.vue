@@ -2,6 +2,7 @@
 import {ref} from "vue";
 import type {Ref} from "vue"
 import type {IMemberList} from "@/types";
+import {completeImagePath} from "@/utils";
 
 const {num} = defineProps<{ num: number, memberList: IMemberList }>();
 
@@ -12,7 +13,7 @@ const more: Ref<number> = ref(num)
   <div class="member">
     <ul>
       <li v-for="item in memberList.slice(0, more)" :key="item._id">
-        <img :src="item.head" :alt="item.name">
+        <img :src="completeImagePath(item.head)" :alt="item.name">
         <h1>{{ item.name }}</h1>
         <h6>{{ item.status }}</h6>
       </li>

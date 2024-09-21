@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {debounce} from "@/utils";
+import {completeImagePath, debounce} from "@/utils";
 import {onMounted, onBeforeUnmount, ref} from "vue"
 import type {Ref} from "vue"
 import type {IAchieveList} from "@/types";
@@ -37,7 +37,7 @@ onBeforeUnmount(() => window.removeEventListener('resize', updateWidth))
         <li ref="li" v-for="item in achieveList" :key="item._id">
           <div class="medal">
             <div class="medal-content">
-              <img :src="item.imgSrc" alt="?">
+              <img :src="completeImagePath(item.imgSrc)" alt="?">
             </div>
           </div>
           <p>{{ item.name }}</p>
