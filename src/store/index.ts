@@ -1,7 +1,7 @@
 import {ref} from "vue"
 import {defineStore} from "pinia";
-import axios from "axios";
 import {apiUrl} from "../config";
+import axios from "axios";
 import type {Ref} from "vue"
 import type {IAbridgeUpdatesViewList, IAbridgeUpdatesView} from "../types";
 
@@ -74,4 +74,8 @@ export default defineStore("defineStore", () => {
         setSearchPageTotal,
         getSearchData
     }
+}, {
+    persist: {
+        pick: ['updateId'],
+    },
 })

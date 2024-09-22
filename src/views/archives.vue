@@ -16,12 +16,9 @@ const {updateId} = storeToRefs(store)
 const data: Ref<IAbridgeUpdatesView & IAbridgeUpdatesContent> = ref(null)
 const url: string = `${apiUrl}/updates`
 
-onMounted(async () => {
-  const res = await axios.get(`${url}/search`, {params: {_id: updateId.value}})
-  data.value = res.data[0];
-})
+onMounted(async () => data.value = (await axios.get(`${url}/search`, {params: {_id: updateId.value}})).data[0])
 
-const replaceContent = (str: string): string => str.replace(/src=["'](\/.+\.(png|jpg|jpeg)\/?)["']/g, ((_, url: string) => `src="${apiUrl}${url}"`))
+const replaceContent = (str: string): string => str.replaceAll(/<img[^>]+src="([^">]+)"/g, ((_, url: string) => `<img src="${apiUrl}${url}"`))
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import {setId} from "@/utils";
 import headers from "@/components/header.vue"
 import footers from "@/components/footer.vue"
 import logo from "@/assets/images/logo.png"
-import {setId} from "@/utils";
 import type {IBarList} from "@/types";
 
 const barData: IBarList = setId([{

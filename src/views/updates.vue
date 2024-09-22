@@ -32,5 +32,6 @@ onMounted(async () => await getData())
 <template>
   <banner style="margin-bottom: 60px;" :height="310" :title="'动态'"></banner>
   <abridge style="margin-top: 45px;" v-if="abridgeList" :list="abridgeList"></abridge>
-  <pagination style="margin-top: 30px" v-if="abridgeList && pageTotal" v-model="updatePageNum" @updatePage="setUpdatePageNum" :pageTotal="pageTotal"></pagination>
+  <pagination style="margin-top: 30px" v-if="abridgeList && pageTotal" v-model="updatePageNum"
+              @updatePage="setUpdatePageNum" :pageTotal="pageTotal"></pagination>
 </template>

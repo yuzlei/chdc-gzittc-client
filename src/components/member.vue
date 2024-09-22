@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import {completeImagePath} from "@/utils";
 import type {Ref} from "vue"
 import type {IMemberList} from "@/types";
-import {completeImagePath} from "@/utils";
 
 const {num} = defineProps<{ num: number, memberList: IMemberList }>();
 
