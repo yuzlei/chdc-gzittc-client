@@ -17,7 +17,7 @@ const url: string = `${apiUrl}/members`
 
 const bannerBtnData: IBarList = setId([{
   name: "了解更多",
-  href: "/index/about",
+  href: "/",
 }, {
   name: "加入我们",
   href: "/",
